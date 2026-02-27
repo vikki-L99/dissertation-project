@@ -8,12 +8,15 @@ import json
 from datetime import datetime
 from dotenv import load_dotenv
 from openai import OpenAI
+from test_cases import TEST_CASES
 
 load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def ask_gpt(buggy_code, prompt_type="direct"):
+def ask_gpt(test_case, prompt_type="direct"):
+	buggy_code = test_case["buggy_code"]
+    
 	if prompt_type == "direct":
 		prompt = f"Fix this Python code and explain what was wrong:\n\n{buggy_code}"
 	else:
@@ -31,6 +34,8 @@ def ask_gpt(buggy_code, prompt_type="direct"):
     
 	result = {
 		"model": "gpt-4o",
+		"test_case_id": test_case["id"],
+		"description": test_case["description"],
 		"prompt_type": prompt_type,
 		"latency_seconds": latency,
 		"timestamp": datetime.now().isoformat(),
@@ -39,23 +44,14 @@ def ask_gpt(buggy_code, prompt_type="direct"):
     
 	return result
 
-# Test
-buggy_code = """
-def calculate_average(numbers):
-	total = 0
-	for n in numbers:
-		total = total + n
-	return total / len(numbers)
+# Run all test cases
+for test_case in TEST_CASES:
+	for prompt_type in ["direct", "socratic"]:
+		print(f"Running {test_case['id']} - {prompt_type}...")
+		result = ask_gpt(test_case, prompt_type)
+		print(f"  Latency: {result['latency_seconds']}s")
+        
+		with open("results.json", "a") as f:
+			f.write(json.dumps(result) + "\n")
 
-print(calculate_average([]))
-"""
-
-result = ask_gpt(buggy_code, "direct")
-print(f"Latency: {result['latency_seconds']}s")
-print(f"Response:\n{result['response']}")
-
-# Save to log file
-with open("results.json", "a") as f:
-	f.write(json.dumps(result) + "\n")
-
-print("\nResult saved to results.json!")
+print("\nAll tests complete! Results saved to results.json")
