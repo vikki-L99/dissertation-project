@@ -12,6 +12,7 @@ from groq import Groq
 from test_cases import TEST_CASES
 
 load_dotenv()
+os.makedirs("results", exist_ok=True)
 
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -68,13 +69,13 @@ for test_case in TEST_CASES:
 		print(f"GPT-4o  | {test_case['id']} - {prompt_type}...")
 		result = ask_gpt(test_case, prompt_type)
 		print(f"  Latency: {result['latency_seconds']}s")
-		with open("results.json", "a") as f:
+		with open("results/results.json", "a") as f:
 			f.write(json.dumps(result) + "\n")
 
 		print(f"Llama 3 | {test_case['id']} - {prompt_type}...")
 		result = ask_llama(test_case, prompt_type)
 		print(f"  Latency: {result['latency_seconds']}s")
-		with open("results.json", "a") as f:
+		with open("results/results.json", "a") as f:
 			f.write(json.dumps(result) + "\n")
 
 print("\nAll tests complete! Results saved to results.json")
