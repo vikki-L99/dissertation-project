@@ -33,7 +33,7 @@ import json
 import os
 
 # --- Load results ---
-results_path = "results/results.json"
+results_path = "results/results.jsonl"
 
 results = []
 with open(results_path, "r") as f:
@@ -43,8 +43,8 @@ with open(results_path, "r") as f:
 			results.append(json.loads(line))
 
 # --- Score storage ---
-# Scores will be saved to results/scores.json
-scores_path = "results/scores.json"
+# Scores will be saved to results/scores.jsonl
+scores_path = "results/scores.jsonl"
 
 # Load existing scores so we don't re-score already scored responses
 existing_scores = {}

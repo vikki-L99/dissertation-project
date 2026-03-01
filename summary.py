@@ -3,7 +3,7 @@ from collections import defaultdict
 
 # Load auto scores
 scores = []
-with open('results/auto_scores.json', 'r') as f:
+with open('results/auto_scores.jsonl', 'r') as f:
 	for line in f:
 		if line.strip():
 			scores.append(json.loads(line))

@@ -4,14 +4,14 @@ from collections import defaultdict
 
 # ============================================================
 # ANALYSIS SCRIPT
-# Reads results.json and calculates:
+# Reads results.jsonl and calculates:
 # 1. Average latency per model per prompt type
 # 2. Average response length per model per prompt type
 # 3. Summary table for dissertation evaluation chapter
 # ============================================================
 
 # --- Load results from file ---
-results_path = "results/results.json"
+results_path = "results/results.jsonl"
 
 if not os.path.exists(results_path):
 	print("No results file found. Run main.py first.")

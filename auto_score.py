@@ -98,8 +98,8 @@ def auto_score_response(response_text, prompt_type, description):
 # ============================================================
 
 # Load all 80 benchmark results
-results_path = "results/results.json"
-auto_scores_path = "results/auto_scores.json"
+results_path = "results/results.jsonl"
+auto_scores_path = "results/auto_scores.jsonl"
 
 results = []
 with open(results_path, "r") as f:
@@ -175,4 +175,4 @@ for r in results:
 		print(f"  ERROR: {e}")
 		continue
 
-print("\nAuto scoring complete! Results saved to results/auto_scores.json")
+print("\nAuto scoring complete! Results saved to results/auto_scores.jsonl")
