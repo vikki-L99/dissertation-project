@@ -205,7 +205,7 @@ python3 rubric.py
 
 ## 👩‍💻 Author
 
-**Aung Htet Myet Kyaw (Viktoria)**  
+**V**  
 MSc Computing — Edinburgh Napier University  
 GitHub: [@vikki-L99](https://github.com/vikki-L99)
 
