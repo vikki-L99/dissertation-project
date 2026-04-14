@@ -1,5 +1,5 @@
 # ============================================================
-# main.py — Core Benchmarking Runner
+# main.py - Core Benchmarking Runner
 #
 # This script is the entry point for the dissertation
 # benchmarking framework. It:
@@ -13,7 +13,7 @@
 #   docker run --env-file .env -v "${PWD}/results:/app/results" dissertation
 #
 # Output:
-#   results/results.jsonl — one JSON record per line
+#   results/results.jsonl - one JSON record per line
 # ============================================================
 
 import os

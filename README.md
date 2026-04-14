@@ -1,16 +1,16 @@
 # 🔬 LLM Benchmarking Framework for Educational Code Debugging
 
-> **MSc Computing Dissertation** — Edinburgh Napier University  
+> **MSc Computing Dissertation** - Edinburgh Napier University  
 > _Benchmarking Large Language Models for Educational Code Debugging: A Comparative Analysis of Direct vs Socratic Prompting Strategies_
 
 ---
 
 ## 📋 Overview
 
-This repository contains the benchmarking framework developed for my MSc dissertation. The framework systematically evaluates and compares two large language models — **GPT-4o** (OpenAI) and **Llama 3.3 70B** (Meta, via Groq) — across two distinct prompting strategies:
+This repository contains the benchmarking framework developed for my MSc dissertation. The framework systematically evaluates and compares two large language models - **GPT-4o** (OpenAI) and **Llama 3.3 70B** (Meta, via Groq) - across two distinct prompting strategies:
 
-- **Direct Prompting** — The model is asked to identify and fix the bug directly
-- **Socratic Prompting** — The model is asked to guide the student toward the answer through questioning
+- **Direct Prompting** - The model is asked to identify and fix the bug directly
+- **Socratic Prompting** - The model is asked to guide the student toward the answer through questioning
 
 The goal is to determine which model and prompting strategy is most effective for **educational code debugging** in a novice programming context.
 
@@ -21,18 +21,18 @@ The goal is to determine which model and prompting strategy is most effective fo
 ```
 dissertation-project/
 │
-├── main.py              # Core benchmarking runner — auto-detects run number and queries both models
+├── main.py              # Core benchmarking runner - auto-detects run number and queries both models
 ├── test_cases.py        # 20 buggy Python code scenarios covering 10 error categories
-├── analyse.py           # Quantitative analysis — latency and response length statistics
-├── auto_score.py        # Automated qualitative scoring via Claude API — scores all responses
-├── rubric.py            # Interactive manual scoring tool — 4-dimension evaluation rubric
-├── summary.py           # Summary statistics — averaged scores across all runs
+├── analyse.py           # Quantitative analysis - latency and response length statistics
+├── auto_score.py        # Automated qualitative scoring via Claude API - scores all responses
+├── rubric.py            # Interactive manual scoring tool - 4-dimension evaluation rubric
+├── summary.py           # Summary statistics - averaged scores across all runs
 │
 ├── results/
 │   ├── results.jsonl      # Raw API responses with latency, timestamps and run numbers
 │   └── auto_scores.jsonl  # Automated qualitative rubric scores per response
 │
-├── Dockerfile           # Container definition — Python 3.11-slim base
+├── Dockerfile           # Container definition - Python 3.11-slim base
 ├── requirements.txt     # Python dependencies
 └── .env                 # API keys (not tracked in git)
 ```
@@ -66,8 +66,8 @@ dissertation-project/
 
 ### Quantitative Metrics
 
-- **Response Latency** — Time in seconds from API call to response
-- **Response Length** — Character count as a proxy for verbosity
+- **Response Latency** - Time in seconds from API call to response
+- **Response Length** - Character count as a proxy for verbosity
 
 ### Qualitative Rubric (0–3 per dimension, max 12/12)
 
@@ -117,7 +117,7 @@ All benchmarks are run inside a Docker container for reproducibility.
 - Docker Desktop installed
 - OpenAI API key (platform.openai.com)
 - Groq API key (console.groq.com)
-- Anthropic API key (console.anthropic.com) — for automated scoring
+- Anthropic API key (console.anthropic.com) - for automated scoring
 
 ### Setup
 
@@ -206,7 +206,7 @@ python3 rubric.py
 ## 👩‍💻 Author
 
 **V**  
-MSc Computing — Edinburgh Napier University  
+MSc Computing - Edinburgh Napier University  
 GitHub: [@vikki-L99](https://github.com/vikki-L99)
 
 ---

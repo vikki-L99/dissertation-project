@@ -1,5 +1,5 @@
 # ============================================================
-# test_cases.py — Buggy Python Code Test Cases
+# test_cases.py - Buggy Python Code Test Cases
 #
 # Contains 20 buggy Python code scenarios used as inputs
 # for the benchmarking framework. Each test case represents
